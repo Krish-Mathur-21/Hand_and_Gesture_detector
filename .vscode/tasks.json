@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--preset", "default"],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake Build Release",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build", "--config", "Release", "-j"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "CMake Build Debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build", "--config", "Debug", "-j"],
+            "group": "build",
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Run Application",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/Release/hand_gesture_light_control.exe",
+            "args": ["--model", "model/gesture_model.pt", "--camera", "0"],
+            "group": "test",
+            "dependsOn": "CMake Build Release"
+        },
+        {
+            "label": "Full Setup",
+            "type": "shell",
+            "command": "scripts\\setup.bat",
+            "group": "none",
+            "problemMatcher": []
+        }
+    ]
+}

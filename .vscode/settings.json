@@ -1,0 +1,19 @@
+{
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_PREFIX_PATH": "${workspaceFolder}/third_party/libtorch"
+    },
+    "cmake.generator": "Visual Studio 17 2022",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/third_party/libtorch/include",
+        "${workspaceFolder}/third_party/libtorch/include/torch/csrc/api/include"
+    ],
+    "files.associations": {
+        "*.hpp": "cpp",
+        "*.h": "cpp"
+    }
+}
